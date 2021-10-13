@@ -1,0 +1,95 @@
+/**
+ShoppingCartPrinter.java
+*/
+
+import java.util.Scanner;
+
+public class ShoppingCartPrinter {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      ItemToPurchase shoppingList = new ItemToPurchase();
+   
+      String productName = scnr.nextLine();
+      shoppingList.setName(productName);
+      
+      int productPrice = scnr.nextInt();
+      shoppingList.setPrice(productPrice);
+      
+      int productAmount = scnr.nextInt();
+      shoppingList.setQuantity(productAmount);
+      
+      System.out.println("Item 1");
+      shoppingList.print();
+      
+      ItemToPurchase shoppingList2 = new ItemToPurchase();
+   
+      scnr.nextLine();
+      
+      String productName2 = scnr.nextLine();
+      shoppingList2.setName(productName);
+      
+      int productPrice2 = scnr.nextInt();
+      shoppingList2.setPrice(productPrice);
+      
+      int productAmount2 = scnr.nextInt();
+      shoppingList2.setQuantity(productAmount);
+      
+      System.out.println("Item 2");
+      shoppingList2.print();
+      
+      ItemToPurchase cost = new ItemToPurchase();
+      //String name = cost.getName();
+      int itemTotal1 = productAmount * productPrice;
+      int itemTotal2 = productAmount2 * productPrice2;
+      int totalCost = itemTotal1 + itemTotal2;
+      
+      System.out.println("TOTAL COST");
+      
+      System.out.println(productName + " " + productAmount + " @ $" + productPrice + " = $" + itemTotal1);
+      
+      System.out.println(productName2 + " " + productAmount2 + " @ $" + productPrice2 + " = $" + itemTotal2);
+      
+      System.out.println("\nTotal: $" + totalCost); 
+   }
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------
+/**
+ItemToPurchase.java
+*/
+
+public class ItemToPurchase {
+   private String itemName;
+   private int itemPrice;
+   private int itemQuantity;
+     
+public ItemToPurchase () { //Constructor without arguments
+}                           
+   public void setName(String name) {
+     itemName = name;
+   }
+   
+   public void setPrice(int price) {
+     itemPrice = price;
+   }
+   
+   public void setQuantity(int quantity) {
+     itemQuantity = quantity;
+   }
+   
+   public String getName() {
+      return itemName;
+   }
+   
+   public int getPrice() {
+      return itemPrice;
+   }
+   
+   public int getQuantity() {
+      return itemQuantity;
+   }
+   
+   public void print(){ //Prints out the user prompts
+      System.out.println("Enter the item name:\nEnter the item price:\nEnter the item quantity:\n");  
+   }
+}// end class ItemsToPurchase
